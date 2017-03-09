@@ -5,12 +5,12 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: { answer: @posts }
   end
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: { answer: @post }
   end
 
   # POST /posts
@@ -18,18 +18,18 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      render json: @post, status: :created
+      render json: { answer: @post }, status: :created
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: { errors: @post.errors }, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      render json: @post
+      render json: { answer: @post }, status: :ok
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: { answer: @post.errors }, status: :unprocessable_entity
     end
   end
 
