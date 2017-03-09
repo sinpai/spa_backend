@@ -33,7 +33,7 @@ describe Api::PostsController, type: :controller do
 
     it "returns post" do
       request(post_params)
-      expect(subject["title"]).to eq(post_params[:post][:title])
+      expect(subject['title']).to eq(post_params[:post][:title])
     end
 
     def request(options = {})
@@ -50,8 +50,8 @@ describe Api::PostsController, type: :controller do
     end
 
     it "returns post" do
-      expect(subject["id"].to_i).to eq(post.id)
-      expect(subject["title"]).to eq(post.title)
+      expect(subject['id'].to_i).to eq(post.id)
+      expect(subject['title']).to eq(post.title)
     end
 
     def request
@@ -72,7 +72,7 @@ describe Api::PostsController, type: :controller do
     end
 
     it "update post" do
-      expect(subject["title"]).to eq(title)
+      expect(subject['title']).to eq(title)
     end
 
     def request
